@@ -5,6 +5,8 @@ from dataclasses_json import dataclass_json
 from dataclasses import dataclass
 from catboost import CatBoostClassifier
 import os
+import joblib
+import pathlib
 
 @dataclass_json
 @dataclass
@@ -20,7 +22,7 @@ hp = Hyperparameters()
 
 # Running workflow
 def run_wf(hp: Hyperparameters) ->CatBoostClassifier:
-    X, y = make_dataset(hp.filepath)
+    X, y = make_dataset((pathlib.Path(__file__).parent / hp.filepath).resolve())
     model = create_model(hp.iterations, hp.loss_function, hp.learning_rate, hp.random_state)
     return fit_model(model=model, X=X, y=y, test_size=hp.test_size, random_state=hp.random_state)
 
