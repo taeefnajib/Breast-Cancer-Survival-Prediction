@@ -11,7 +11,7 @@ import pathlib
 @dataclass_json
 @dataclass
 class Hyperparameters(object):
-    filepath: str = "data/raw/patient_data.csv"
+    filepath: str = "data/patient_data.csv"
     test_size: float = 0.2
     random_state: int = 16
     iterations: int = 5000
