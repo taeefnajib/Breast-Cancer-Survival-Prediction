@@ -13,7 +13,7 @@ import pathlib
 class Hyperparameters(object):
     filepath: str = "data/raw/patient_data.csv"
     test_size: float = 0.2
-    random_state: int = 26
+    random_state: int = 16
     iterations: int = 5000
     loss_function: str = 'Logloss'
     learning_rate: float = 0.0001
